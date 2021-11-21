@@ -1,5 +1,6 @@
 import { fetchAPI } from '../api/meal.js';
 
+//const DEFAULT_URL = 'http://localhost:3000';
 const DEFAULT_URL = 'https://measdemy-food-recipe.glitch.me';
 const LIST_CATEGORY = `${DEFAULT_URL}/categories`;
 const DEFAULT_CATEGORY = `${DEFAULT_URL}/categories/beef`;
