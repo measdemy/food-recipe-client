@@ -1,0 +1,84 @@
+@import 'config';
+@import 'variables';
+
+.menu {
+  @include displayGrid(4, 1fr, 2em);
+}
+.title {
+  margin: 2em 0;
+  animation: $loadingAnimation;
+}
+.tab {
+  @include displayFlex(row, center);
+  margin: 2em 0;
+  button {
+    border: none;
+    padding: 1em 1.5em;
+    border-radius: $borderRadius;
+    margin: 0 0.2em;
+    box-shadow: $boxShadow;
+    cursor: pointer;
+    animation: $loadingAnimation;
+  }
+  :hover,
+  .active {
+    background: $primaryColor;
+    color: $textColor;
+  }
+}
+
+.menu {
+  grid-area: menu;
+}
+.item {
+  @include displayFlex(column, none);
+  cursor: pointer;
+  animation: $loadingAnimation;
+  box-shadow: $boxShadow;
+  border-radius: $borderRadius;
+  .menu-name {
+    display: inherit;
+    width: 100%;
+    text-align: center;
+    height: 100px;
+    padding: 0.5em 0;
+  }
+}
+
+#menu-img {
+  width: 100%;
+  height: auto;
+  margin: auto;
+  border-radius: $borderRadius $borderRadius 0 0;
+}
+.title {
+  h2 {
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-color: salmon;
+    text-underline-offset: 0.1em;
+    color: $titleColor;
+  }
+}
+.loading-img {
+  display: none;
+}
+.view-loading {
+  display: block;
+  margin: auto;
+}
+
+@media only screen and (max-width: 700px) {
+  .menu {
+    @include displayGrid(2, 1fr, 1em);
+  }
+}
+
+@keyframes loading {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

@@ -1,0 +1,19 @@
+$primaryColor: salmon;
+$loadingAnimation: loading 100ms ease-in;
+$textColor: #ffff;
+$titleColor: #646363fc;
+$boxShadow: 1px 1px 10px grey;
+$borderRadius: 5px;
+
+@mixin displayFlex($direction, $content) {
+  display: flex;
+  justify-content: $content;
+  flex-direction: $direction;
+}
+
+@mixin displayGrid($column, $fr, $gap) {
+  display: grid;
+  grid-template-columns: repeat($column, $fr);
+  gap: $gap;
+  padding: $gap;
+}
