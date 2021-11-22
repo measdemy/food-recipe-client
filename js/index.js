@@ -1,6 +1,5 @@
 import { fetchAPI } from '../api/meal.js';
 
-//const DEFAULT_URL = 'http://localhost:3000';
 const DEFAULT_URL = 'https://measdemy-food-recipe.glitch.me';
 const LIST_CATEGORY = `${DEFAULT_URL}/categories`;
 const DEFAULT_CATEGORY = `${DEFAULT_URL}/categories/beef`;
@@ -8,6 +7,7 @@ const BY_CATEGORY = `${DEFAULT_URL}/categories/`;
 
 const menuDiv = document.querySelector('.menu');
 const tab = document.querySelector('.tab');
+const loader = document.querySelector('.loader');
 
 const listAllCategories = async () => {
   let { meals: categories } = await fetchAPI(LIST_CATEGORY);
@@ -36,6 +36,7 @@ const listAllCategories = async () => {
 const showMeals = async (url) => {
   // fetch meals
   const { meals } = await fetchAPI(url);
+  loader.classList.add('hidden');
   // display meals
   const section = await displayMeals(meals);
   return section;
